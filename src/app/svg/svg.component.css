@@ -1,0 +1,33 @@
+.svg-container {
+    padding: 1em;
+    background: #2B3134;
+    color: #777;
+    text-align: center;
+    font-family: "Gill sans", sans-serif;
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.svg-title {
+    margin: 1em 0;
+    border-bottom: 1px dashed;
+    padding-bottom: 1em;
+    font-weight: lighter;
+    font-size: 20px;
+    text-align: center;
+}
+
+p {
+    font-style: italic;
+}
+
+#Layer_1 {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+

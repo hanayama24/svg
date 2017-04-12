@@ -1,0 +1,36 @@
+<div class="svg-container"
+    (click)="clicked($event)"
+    (mouseenter)="onEvent($event)"
+    (mouseleave)="onEvent($event)"
+    (mousemove)="coordinates($event)"
+    on-click="onEvent($event)"
+    on-dblclick="onEvent($event)"
+    on-contextmenu="onEvent($event)">
+    <div class="svg-title">
+        SVG works!
+    </div>
+    <h3>count: {{ count }}</h3>
+
+    <div class="box">
+        <p class="type">Type: {{event?.type}}</p>
+        <p>x: {{clientX}}, y: {{clientY}}</p>
+        <p>ctrl: {{event?.ctrlKey}}, shift: {{event?.shiftKey}}, meta: {{event?.metaKey}}</p>
+    </div>
+
+    <div class="svg-element">
+        <app-svg-content></app-svg-content>
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	  style="enable-background:new 0 0 1400 980;" xml:space="preserve">
+        <style type="text/css">
+            .st0{fill: #fff; stroke: #2B3134}
+            .st1{fill: #2B3134;stroke: #2B3134; stroke-miterlimit:10;}
+            .red-line{fill: #EA2E49;}
+        </style>
+        <path  [@fadeInOut]="state" id="XMLID_15_" class="red-line" [attr.d]="getPathD" />
+        <circle [attr.cx]='clientX' [attr.cy]='clientY' r="40" fill='#EA2E49' ></circle>
+        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx' [attr.cy]='setCurrentCy' r="40" fill='#EA2E49' ></circle>
+    </svg>
+
+
+    </div>
+</div>
