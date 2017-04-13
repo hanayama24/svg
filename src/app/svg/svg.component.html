@@ -26,11 +26,18 @@
             .st1{fill: #2B3134;stroke: #2B3134; stroke-miterlimit:10;}
             .red-line{fill: #EA2E49;}
         </style>
-        <path  [@fadeInOut]="state" id="XMLID_15_" class="red-line" [attr.d]="getPathD" />
+        <path   id="XMLID_15_" class="red-line" [attr.d]="getPathD" />
         <circle [attr.cx]='clientX' [attr.cy]='clientY' r="40" fill='#EA2E49' ></circle>
-        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx' [attr.cy]='setCurrentCy' r="40" fill='#EA2E49' ></circle>
+
+        <circle [@fadeInOut]="state" id="redCircle" [attr.cx]='setCurrentCx' [attr.cy]='setCurrentCy' r="60" fill='#EA2E49' ></circle>
+
+        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx' [attr.cy]='setCurrentCy' [attr.r]="setCurrentR" fill='#fff' ></circle>
+        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx + 100' [attr.cy]='setCurrentCy - 200' [attr.r]="setCurrentR" fill='#fff' ></circle>
+        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx + 100' [attr.cy]='setCurrentCy - 200' [attr.r]="setCurrentR" fill='#EA2E49' ></circle>
+        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx - 100' [attr.cy]='setCurrentCy - 200' [attr.r]="setCurrentR - 5" fill='#EA2E49' ></circle>
+        <circle  id="redCircle" [attr.cx]='setCurrentCx + 50' [attr.cy]='setCurrentCy + 100' [attr.r]="10" fill='#EA2E49' ></circle>
+        <circle  id="redCircle" [attr.cx]='setCurrentCx - 250' [attr.cy]='setCurrentCy + 50' [attr.r]="setCurrentR + 20" fill='#fff' ></circle>
+
     </svg>
-
-
     </div>
 </div>
