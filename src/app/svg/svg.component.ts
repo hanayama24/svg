@@ -25,9 +25,9 @@ export class SvgComponent implements OnInit {
     private event: MouseEvent;
     private clientX = 0;
     private clientY = 0;
-    private setCurrentCx = undefined;
-    private setCurrentCy =  undefined;
-    private setCurrentR =  undefined;
+    private setCurrentCx = [100];
+    private setCurrentCy = [100];
+    private setCurrentR = [];
     public getPathD;
     public state = 'open';
     public timeOutRef;
@@ -54,11 +54,9 @@ export class SvgComponent implements OnInit {
     clicked(event) {
         event.preventDefault();
         this.count++;
-        this.setCurrentCx = this.getRandomInt(event.clientX, event.clientX + 200);
-        this.setCurrentCy = this.getRandomInt(event.clientY, event.clientY + 300);
-        this.setCurrentR = this.getRandomInt(10, 100);
-        this.setPathD();
-        this.beginAnim();
+        this.setCurrentCx.push(this.clientX);
+        this.setCurrentCy.push(this.clientY);
+        console.log('Circles coordinates', this.setCurrentCx, this.setCurrentCy);
     }
 
     getRandomInt(min, max) {
@@ -89,8 +87,7 @@ export class SvgComponent implements OnInit {
     }
 
   ngOnInit() {
-             this.setCurrentCx = undefined;
-             this.setCurrentCy =  undefined;
+
   }
 
 

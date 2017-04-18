@@ -1,0 +1,22 @@
+<div  class="svg-line-container"
+      (click)="getEndXYCoord($event)"
+      (mouseenter)="onEvent($event)"
+      (mouseleave)="onEvent($event)"
+      (mousemove)="coordinates($event)"
+      on-click="onEvent($event)" >
+
+    <svg version="1.1" id="Layer_1222" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      width="1200" height="500" xml:space="preserve">
+        <svg:line *ngFor="let sx of listStartX; let i = index;"
+                  id="XMLID_1_" class="svg-line"
+                  [attr.x1]="listStartX[i]"
+                  [attr.y1]="listStartY[i]"
+                  [attr.x2]="listEndX[i]"
+                  [attr.y2]="listEndY[i]"/>
+    </svg>
+
+    <button type="text"
+        (click)="clearAllLines()"
+    >Clear all lines </button>
+</div>
+

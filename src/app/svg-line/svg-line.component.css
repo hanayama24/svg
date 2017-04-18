@@ -1,0 +1,8 @@
+.svg-line-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    height: 500px;
+    z-index: 1000;
+}

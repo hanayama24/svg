@@ -9,6 +9,8 @@
     <div class="svg-title">
         SVG works!
     </div>
+
+    <app-svg-circle></app-svg-circle>
     <h3>count: {{ count }}</h3>
 
     <div class="box">
@@ -17,26 +19,27 @@
         <p>ctrl: {{event?.ctrlKey}}, shift: {{event?.shiftKey}}, meta: {{event?.metaKey}}</p>
     </div>
 
+    <app-svg-line></app-svg-line>
+
     <div class="svg-element">
         <app-svg-content></app-svg-content>
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	  style="enable-background:new 0 0 1400 980;" xml:space="preserve">
-        <style type="text/css">
-            .st0{fill: #fff; stroke: #2B3134}
-            .st1{fill: #2B3134;stroke: #2B3134; stroke-miterlimit:10;}
-            .red-line{fill: #EA2E49;}
-        </style>
-        <path   id="XMLID_15_" class="red-line" [attr.d]="getPathD" />
-        <circle [attr.cx]='clientX' [attr.cy]='clientY' r="40" fill='#EA2E49' ></circle>
+        <svg version="1.1" id="Layer_1"
+             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	         style="enable-background:new 0 0 1400 980;" xml:space="preserve">
+                <style type="text/css">
+                    .st0{fill: #fff; stroke: #2B3134}
+                    .st1{fill: #2B3134;stroke: #2B3134; stroke-miterlimit:10;}
+                    .red-line{fill: #EA2E49;}
+                    .svg-line{fill:#EA2E49;stroke:#EA2E49;stroke-miterlimit:10;}
+                </style>
+                <path   id="XMLID_15_" class="red-line" [attr.d]="getPathD" />
+                <!--<circle [attr.cx]='clientX' [attr.cy]='clientY' r="40" fill='#EA2E49' ></circle>-->
 
-        <circle [@fadeInOut]="state" id="redCircle" [attr.cx]='setCurrentCx' [attr.cy]='setCurrentCy' r="60" fill='#EA2E49' ></circle>
-
-        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx' [attr.cy]='setCurrentCy' [attr.r]="setCurrentR" fill='#fff' ></circle>
-        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx + 100' [attr.cy]='setCurrentCy - 200' [attr.r]="setCurrentR" fill='#fff' ></circle>
-        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx + 100' [attr.cy]='setCurrentCy - 200' [attr.r]="setCurrentR" fill='#EA2E49' ></circle>
-        <circle [@fadeInOut]="state"  id="redCircle" [attr.cx]='setCurrentCx - 100' [attr.cy]='setCurrentCy - 200' [attr.r]="setCurrentR - 5" fill='#EA2E49' ></circle>
-        <circle  id="redCircle" [attr.cx]='setCurrentCx + 50' [attr.cy]='setCurrentCy + 100' [attr.r]="10" fill='#EA2E49' ></circle>
-        <circle  id="redCircle" [attr.cx]='setCurrentCx - 250' [attr.cy]='setCurrentCy + 50' [attr.r]="setCurrentR + 20" fill='#fff' ></circle>
+                <circle *ngFor="let cx of setCurrentCx; let i = index;" [@fadeInOut]="state" id="redCircle"
+                        [attr.cx]='setCurrentCx[i]'
+                        [attr.cy]='setCurrentCy[i]'
+                        r="8"
+                        fill='#EA2E49' ></circle>
 
     </svg>
     </div>
