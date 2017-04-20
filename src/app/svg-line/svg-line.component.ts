@@ -1,4 +1,11 @@
-import { Component, OnInit, ElementRef, Output, Input } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    ElementRef,
+    Output,
+    Input,
+    EventEmitter
+} from '@angular/core';
 
 @Component({
   selector: 'app-svg-line',
@@ -11,12 +18,16 @@ export class SvgLineComponent implements OnInit {
     private clientY = 0;
     private setEndXCoord = 734;
     private setEndYCoord = 147;
+    private setCurrentCx;
+    private setCurrentCy;
     private listStartX = [100];
     private listStartY = [100];
     private listEndX = [];
     private listEndY = [];
-
     public timeOutRef;
+
+    @Output()
+    coordinatesChanged = new EventEmitter();
 
     private onEvent(event: MouseEvent): void {
         this.event = event;
@@ -54,6 +65,9 @@ export class SvgLineComponent implements OnInit {
         this.listEndY = [100];
         this.listStartX = [];
         this.listStartY = [];
+        this.setCurrentCx = [];
+        this.setCurrentCy = [];
+        this.coordinatesChanged.emit(this.setEndXCoord);
     }
     ngOnInit() {
    }

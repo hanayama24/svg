@@ -1,33 +1,50 @@
-import { Component, OnInit, ElementRef, Output, Input } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    ElementRef,
+    Output,
+    Input,
+    EventEmitter
+} from '@angular/core';
 import { SvgContentComponent } from './svg-content.component';
 import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
+    trigger,
+    state,
+    style,
+    animate,
+    transition,
+    keyframes
 } from '@angular/animations/@angular/animations';
 
 @Component({
-  selector: 'app-svg',
-  styleUrls: ['./svg.component.css'],
-  animations: [
-    trigger('fadeInOut', [
-      state('open', style({opacity: 1})),
-      state('closed', style({opacity: 0})),
-      transition('open <=> closed', animate( '3000ms' )),
-    ])
-  ],
-  templateUrl: './svg.component.html',
+    selector: 'app-svg',
+    styleUrls: ['./svg.component.css'],
+    animations: [
+        trigger('fadeInOut', [
+        state('closed', style({
+            opacity: 0,
+            transform: 'scale(1)',
+        })),
+        state('open', style({
+            opacity: 0.7,
+            transform: 'scale(1)',
+        })),
+        transition('open <=> closed', animate( '600ms ease-in-out' )),
+        ])
+    ],
+    templateUrl: './svg.component.html',
 })
 export class SvgComponent implements OnInit {
     public count = 0;
     private event: MouseEvent;
     private clientX = 0;
     private clientY = 0;
+    private clickedClientX = 0;
+    private clickedClientY = 0;
     private setCurrentCx = [100];
     private setCurrentCy = [100];
-    private setCurrentR = [];
+    private radiusSixOrEight = 8;
+
     public getPathD;
     public state = 'open';
     public timeOutRef;
@@ -44,25 +61,44 @@ export class SvgComponent implements OnInit {
     }
 
     // tslint:disable-next-line:member-ordering
-    @Output() svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+
 
     constructor(private elementRef: ElementRef) {
         this.coordinatesCx = [100, 200];
         this.coordinatesCy = [100, 200];
     }
 
-    clicked(event) {
+    clicked(event, o) {
         event.preventDefault();
         this.count++;
         this.setCurrentCx.push(this.clientX);
         this.setCurrentCy.push(this.clientY);
-        console.log('Circles coordinates', this.setCurrentCx, this.setCurrentCy);
+        console.log('State change: ', this.state);
+        this.state = this.state === 'open' ? 'closed' : 'open';
+        console.log('State change: ', this.state);
+        setTimeout(() => {
+            this.state = this.state === 'open' ? 'closed' : 'open';
+            console.log('Timeout ready!!!!! ', this.state);
+        }, 610);
+        this.clickedClientX = this.clientX;
+        this.clickedClientY = this.clientY;
+        this.getRadius(o);
     }
 
     getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    getRadius(o) {
+        return o ? 8 : 6;
+    }
+
+    iSeeYouChangedCoord(event) {
+        console.log('I see you changed coord');
+        this.setCurrentCx = [];
+        this.setCurrentCy = [];
     }
 
     private setPathD() {
