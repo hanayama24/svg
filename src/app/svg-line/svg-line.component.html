@@ -7,17 +7,21 @@
 
     <svg version="1.1" id="Layer_1222" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       width="1200" height="500" xml:space="preserve">
-        <svg:line *ngFor="let sx of listStartX; let i = index;"
+        <svg:line *ngFor="let item of startCoord; let item of endCoord; let i = index;"
                   id="XMLID_1_" class="svg-line"
-                  [attr.x1]="listStartX[i]"
-                  [attr.y1]="listStartY[i]"
-                  [attr.x2]="listEndX[i]"
-                  [attr.y2]="listEndY[i]"/>
+                  [attr.x1]="startCoord[i].x"
+                  [attr.y1]="startCoord[i].y"
+                  [attr.x2]="endCoord[i].x"
+                  [attr.y2]="endCoord[i].y"/>
     </svg>
 
     <button  type="text"
         (click)="clearAllLines()"
     >Clear all lines </button>
+
+    <button  type="text"
+        (click)="makePolygon()"
+    >Make cool polygon </button>
 
 
 </div>
