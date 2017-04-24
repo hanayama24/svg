@@ -16,6 +16,8 @@ import {
     keyframes
 } from '@angular/animations/@angular/animations';
 
+import polygonCoord from '../svg-line/polygon.const';
+
 @Component({
     selector: 'app-svg',
     styleUrls: ['./svg.component.css'],
@@ -44,6 +46,7 @@ export class SvgComponent implements OnInit {
     private setCurrentCx = [100];
     private setCurrentCy = [100];
     private radiusSixOrEight = 8;
+    private startCoord = [];
 
     public getPathD;
     public state = 'open';
@@ -72,7 +75,7 @@ export class SvgComponent implements OnInit {
         event.preventDefault();
         this.count++;
         this.setCurrentCx.push(this.clientX);
-        this.setCurrentCy.push(this.clientY);
+        this.setCurrentCy.push(this.clientY);        
         console.log('State change: ', this.state);
         this.state = this.state === 'open' ? 'closed' : 'open';
         console.log('State change: ', this.state);
@@ -82,6 +85,7 @@ export class SvgComponent implements OnInit {
         }, 610);
         this.clickedClientX = this.clientX;
         this.clickedClientY = this.clientY;
+        this.startCoord.push({x: this.clientX, y: this.clientY });
         this.getRadius(o);
     }
 
@@ -99,6 +103,7 @@ export class SvgComponent implements OnInit {
         console.log('I see you changed coord');
         this.setCurrentCx = [];
         this.setCurrentCy = [];
+        this.startCoord = polygonCoord;
     }
 
     private setPathD() {

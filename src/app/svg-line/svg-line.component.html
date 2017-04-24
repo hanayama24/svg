@@ -6,7 +6,7 @@
       on-click="onEvent($event)" >
 
     <svg version="1.1" id="Layer_1222" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      width="1200" height="500" xml:space="preserve">
+      width="100%" height="500" xml:space="preserve">
         <svg:line *ngFor="let item of startCoord; let item of endCoord; let i = index;"
                   id="XMLID_1_" class="svg-line"
                   [attr.x1]="startCoord[i].x"
@@ -15,14 +15,14 @@
                   [attr.y2]="endCoord[i].y"/>
     </svg>
 
-    <button  type="text"
-        (click)="clearAllLines()"
-    >Clear all lines </button>
+    <div class="on-button-container">
+        <button  type="text" (click)="clearAllLines()">
+            Clear all lines 
+        </button>
 
-    <button  type="text"
-        (click)="makePolygon()"
-    >Make cool polygon </button>
-
-
+        <button  type="text" (click)="makePolygon()">
+            Make cool polygon
+        </button>
+    </div>
 </div>
 

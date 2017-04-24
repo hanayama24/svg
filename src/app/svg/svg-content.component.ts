@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 
 @Component({
+    styleUrls: ['./svg.component.css'],
     selector: 'app-svg-content',
     templateUrl: './svg-content.component.html',
 })

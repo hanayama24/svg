@@ -96,6 +96,8 @@ export class SvgLineComponent implements OnInit {
             {x: 0, y: 0}
         ];
         this.coordinatesChanged.emit(this.setEndXCoord);
+
+        console.log('Clear all: ', this.startCoord);
     }
 
     makePolygon() {
@@ -118,6 +120,7 @@ export class SvgLineComponent implements OnInit {
         this.listEndY = this.polygonEY;
         this.listStartX = this.polygonSX;
         this.listStartY = this.polygonSY;
+        this.coordinatesChanged.emit(this.setEndXCoord);
     }
     ngOnInit() {
    }

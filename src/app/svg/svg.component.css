@@ -31,3 +31,9 @@ p {
     left: 0;
 }
 
+svg#star-wars {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+

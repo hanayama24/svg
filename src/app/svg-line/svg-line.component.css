@@ -2,7 +2,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 1200px;
+    width: 100%;
     height: 500px;
     z-index: 1000;
 }
@@ -34,4 +34,9 @@ button:hover {
   background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
+}
+
+.on-button-container {
+    width: 380px;
+    margin: 0 auto;
 }
