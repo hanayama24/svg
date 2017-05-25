@@ -75,7 +75,7 @@ export class SvgComponent implements OnInit {
         event.preventDefault();
         this.count++;
         this.setCurrentCx.push(this.clientX);
-        this.setCurrentCy.push(this.clientY);        
+        this.setCurrentCy.push(this.clientY);
         console.log('State change: ', this.state);
         this.state = this.state === 'open' ? 'closed' : 'open';
         console.log('State change: ', this.state);
@@ -104,6 +104,25 @@ export class SvgComponent implements OnInit {
         this.setCurrentCx = [];
         this.setCurrentCy = [];
         this.startCoord = polygonCoord;
+    }
+
+    private setArc() {
+        return ` M 432, 273.5
+                c 11.6, 0, 22.5, 2.7, 32.2, 7.6
+                                M 464.2, 281.1
+                c 13.9, 7, 25.3, 18.3, 32.2, 32.2
+                                M 496.4, 313.3
+                c 4.9, 9.7, 7.6, 20.6, 7.6, 32.2
+                                M 496.4, 377.7
+                c 4.9-9.7,7.6-20.6,7.6-32.2
+                                M 496.4, 377.7
+                c -7, 13.9 -18.3, 25.3 -32.2, 32.2
+                                M 464.2, 409.9
+                c -9.7, 4.9 -20.6,7.6 -32.2,7.6
+                                M 432, 417.5
+                c -39.8,0 -72-32.2-72-72
+                s 32.2-72, 72-72`;
+        // 'M ' + this.clientX  + ', ' +  this.clientY + ' A50,50 0 1 0 315, 160';
     }
 
     private setPathD() {

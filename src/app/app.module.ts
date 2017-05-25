@@ -9,6 +9,7 @@ import { SvgContentComponent } from './svg/svg-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SvgLineComponent } from './svg-line/svg-line.component';
 import { SvgCircleComponent } from './svg-circle/svg-circle.component';
+import { SvgCurvesComponent } from './svg-curves/svg-curves.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SvgCircleComponent } from './svg-circle/svg-circle.component';
     SvgContentComponent,
     SvgLineComponent,
     SvgCircleComponent,
+    SvgCurvesComponent,
   ],
   imports: [
     BrowserModule,

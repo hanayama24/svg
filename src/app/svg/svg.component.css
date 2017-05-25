@@ -17,6 +17,7 @@
     font-weight: lighter;
     font-size: 20px;
     text-align: center;
+    cursor: pointer;
 }
 
 p {
@@ -35,5 +36,48 @@ svg#star-wars {
     position: absolute;
     top: 0;
     right: 0;
+}
+
+.on-arc-set {
+    fill:none;
+    stroke:#EA2E49;
+    stroke-width: 2;
+    stroke-miterlimit:10;
+}
+
+.on-svg-curves-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+
+.on-circle {
+    fill: transparent;
+    stroke:#EA2E49;
+    stroke-width: 1;
+    stroke-miterlimit:10;
+}
+
+.on-circle-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.on-circle-segment {
+    fill: transparent;
+    stroke: #DC4626;
+    stroke-width: 1;
+    stroke-miterlimit: 10;
+}
+
+.on-circle-segments {
+    cursor: pointer;
+    fill: transparent;
 }
 

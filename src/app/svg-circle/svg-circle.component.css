@@ -1,0 +1,27 @@
+.on-circle {
+    fill: transparent;
+    stroke:#EA2E49;
+    stroke-width: 1;
+    stroke-miterlimit:10;
+}
+
+.on-circle-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.on-circle-segment {
+    fill: transparent;
+    stroke: #DC4626;
+    stroke-width: 1;
+    stroke-miterlimit: 10;
+}
+
+.on-circle-segments {
+    cursor: pointer;
+    fill: transparent;
+}

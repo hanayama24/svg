@@ -1,0 +1,14 @@
+.on-arc-set {
+    fill:none;
+    stroke:#DC4626;
+    stroke-width:0.5;
+    stroke-miterlimit:10;
+}
+
+.on-svg-curves-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}

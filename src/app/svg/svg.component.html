@@ -11,7 +11,8 @@
         SVG works!
     </div>
 
-    <app-svg-circle></app-svg-circle>
+    <!--<app-svg-circle ></app-svg-circle>-->
+
     <h3>count: {{ count }}</h3>
 
     <div class="box">
@@ -20,22 +21,31 @@
         <p>ctrl: {{event?.ctrlKey}}, shift: {{event?.shiftKey}}, meta: {{event?.metaKey}}</p>
     </div>
 
-    <app-svg-line (coordinatesChanged)="iSeeYouChangedCoord($event)"></app-svg-line>
+
+
+    <!--<app-svg-line (coordinatesChanged)="iSeeYouChangedCoord($event)"></app-svg-line>-->
 
     <div class="svg-element">
-        <app-svg-content></app-svg-content>
+        <!--<app-svg-content></app-svg-content>-->
         <svg version="1.1" id="Layer_1"
              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 	         style="enable-background:new 0 0 1400 980;" xml:space="preserve">
+            <g class="on-circle-segments" style="cursor: pointer;">
+                    <path class="on-circle-segment"
+                            [attr.d]="setArc()"
+                    />
+            </g>
 
-            <style type="text/css">
+            <!--<style type="text/css">
                 .st0{fill: #fff; stroke: #2B3134}
                 .st1{fill: #2B3134;stroke: #2B3134; stroke-miterlimit:10;}
                 .red-line{fill: #EA2E49;}
                 .svg-line{fill:#EA2E49;stroke:#EA2E49;stroke-miterlimit:10;}
             </style>
+            <path class="on-arc-set"
+                [attr.d]="setArc()"
+            />
             <path   id="XMLID_15_" class="red-line" [attr.d]="getPathD" />
-            <!--<circle [attr.cx]='clientX' [attr.cy]='clientY' r="40" fill='#EA2E49' ></circle>-->
 
             <circle *ngFor="let cx of startCoord; let i = index; let o = odd; let e = even;"  id="redCircle"
                     [attr.cx]='startCoord[i].x'
@@ -49,7 +59,7 @@
                     [attr.cy]='clickedClientY'
                     [attr.r]='20'
                     fill='#EA2E49'
-            ></circle>
+            ></circle>-->
     </svg>
     </div>
 </div>
